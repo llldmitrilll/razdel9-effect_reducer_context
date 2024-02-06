@@ -1,0 +1,9 @@
+.divHeader {
+   padding: 20px 50px;
+   background: #000051;
+   color: #fff;
+   margin-bottom: 50px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}

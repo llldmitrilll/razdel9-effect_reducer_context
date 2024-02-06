@@ -1,0 +1,24 @@
+.formControles input {
+   padding: 5px;
+   outline: none;
+}
+
+.formControles input:focus {
+   background: #b3b3b3;
+   border: 1px solid #0011ff;
+   border-radius: 3px;
+}
+
+.formControles {
+   display: flex;
+   flex-direction: column;
+}
+
+.formControles :not(last-chald) {
+   margin-bottom: 10px;
+}
+
+.formBtn {
+   display: flex;
+   justify-content: center;
+}
