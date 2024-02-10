@@ -1,18 +1,17 @@
-import Button from '../Ui/Button';
+import React, { useContext } from 'react';
+
+import AuthContext from '../../store/auth-context';
 import styles from './Nav.module.css';
 
-const Nav = (props) => {
-   const userExit = (e) => {
-      e.preventDefault();
-      props.onUserExit(false);
-   }
+const Nav = () => {
+   const ctx = useContext(AuthContext);
    return (
       <nav>
          <ul className={styles.list}>
-            <li>menu 1</li>
-            <li>menu 2</li>
-            <li>menu 3</li>
-            <li><Button onClick={userExit}>Выход</Button></li>
+            {ctx.isLoginUser && <li>menu 1</li>}
+            {ctx.isLoginUser && <li>menu 2</li>}
+            {ctx.isLoginUser && <li>menu 3</li>}
+            {ctx.isLoginUser && <li><button onClick={ctx.onUserExit}>Выход</button></li>}
          </ul>
       </nav>
    )

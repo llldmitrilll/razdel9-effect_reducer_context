@@ -1,25 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import DivHeader from './components/DivHeader/DivHeader'
 import './App.css';
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
+import AuthContext from './store/auth-context';
 
 function App() {
-  const [isLoginUser, setIsLoginUser] = useState(false);
-
-  const inputUserHandler = () => {
-    setIsLoginUser(true);
-  }
-
-  const userExit = (bool) => {
-    setIsLoginUser(bool);
-  }
+  const ctx = useContext(AuthContext);
   return (
     <React.Fragment>
-      <DivHeader isLoginUser={isLoginUser} onUserExit={userExit} />
-      {!isLoginUser && <Login onInputUser={inputUserHandler} />}
-      {isLoginUser && <Home />}
+      <DivHeader />
+      {!ctx.isLoginUser && <Login />}
+      {ctx.isLoginUser && <Home />}
     </React.Fragment>
+
   );
 }
 
